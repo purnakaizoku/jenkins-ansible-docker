@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: your-deployment-name
+  name: luffy-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: your-app-label
+      app: nodeapp
   template:
     metadata:
       labels:
-        app: your-app-label
+        app: nodeapp
     spec:
       containers:
-      - name: your-container-name
-        image: your-container-image:tag
+      - name: w1
+        image: purna6/nodeapp:latest
         ports:
         - containerPort: 8080
 
@@ -24,10 +24,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: your-service-name
+  name: nodeapp-service
 spec:
   selector:
-    app: your-app-label
+    app: node-app
   ports:
     - protocol: TCP
       port: 80
